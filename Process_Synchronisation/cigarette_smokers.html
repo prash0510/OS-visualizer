@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="css/cigarette_smokers.css" rel="stylesheet" />
+	<script type="text/javascript" src="../Index/js/scrolloverflow.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../Index/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+   	<script type="text/javascript" src="../Index/js/jquery.fullPage.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		$('#fullpage').fullpage({
+    			sectionsColor: ['#00000'],
+    			anchors: ['anime'],
+    			menu: '#menu',
+    			easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
+    		});
+    	});
+      </script>
+<style>
+	body{
+		background-color: black;
+		color:white
+	}
+	
+	nav {
+    background-color:#6200ea; /* Light purple */
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 24px;
+    color: #ffffff; /* White */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logo:hover {
+    background-color: #8502f7;
+    text-decoration: none;
+    color:#ffffff
+     /* Dark purple */
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  li {
+    margin: 0 10px;
+  }
+  
+  a {
+    color: #ffffff; /* White */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    background-color:#6200ea; /* Light purple */
+  }
+  
+  a:hover {
+    background-color:#8502f7; /* Dark purple */
+    text-decoration: none;
+    color:#ffffff
+  }
+</style>
+</head>
+
+<body>
+    <nav>
+		<a class="logo" href="../index.html">OS VISUALIZER</a>
+		<ul>
+			<li><a class="a" href="../index.html">Home</a></li>
+			<li><a class="a" href="../about.html">About</a></li>
+			<li><a class="a" href="#">References</a></li>
+		</ul>
+	</nav>
+    <br>
+	<center>
+		<a href="./cigrate_smoke_wiki.html"
+		style="background-color: #6200ea;color: white;width: 90px; height: 40px;display: flex;justify-content: center;align-items:center;border-radius: 10px;position: absolute;top:100px;left: 90%;"
+		>Wiki</a></center>		
+
+		<div class="section" id="section1">
+			<div class="container" id="anim">
+				<!-- <img id="table" src="includes/table.jpg"> -->
+				<button type="button" class="next" onclick="simulate()">Next</button>
+
+				<img id="smoker1" src="includes/smoker1.jpg">
+				<img id="smoker2" src="includes/smoker2.jpg">
+				<img id="smoker3" src="includes/smoker3.jpg">
+				<img id="non-smoker" src="includes/non_smoker.jpg">
+
+				<div id="s1">Smoker 1</div>
+				<div id="s2">Smoker 2</div>
+				<div id="s3">Smoker 3</div>
+				<div id="ns">Agent</div>
+
+				<div id="t">Tabocco</div>
+				<div id="p">Papers</div>
+				<div id="m">Matches</div>
+				<div id="su1" align="middle"></div>
+				<div id="su2" align="middle"></div>
+
+				<div id="random">Random numbers generated : 0 0</div>
+				<div id="smoke" align="middle">Smoker 0 smoking</div>
+
+				<p id="ph1">Smoker 1 has tobacco</p>
+				<p id="ph2">Smoker 2 has papers</p>
+				<p id="ph3">Smoker 3 has matches</p>
+				<p id="ph4">Agent supplies - </p>
+			</div>
+		</div>
+
+	<script>
+
+		var g1=0, g2=0;
+		function simulate()
+		{
+			while(1)
+			{
+				g1 = Math.floor((Math.random() * 3) + 1);
+				g2 = Math.floor((Math.random() * 3) + 1);
+				if(g1!=g2)
+					break;
+			}
+
+			document.getElementById("random").innerHTML = "Random numbers generated : "+g1+" "+g2;
+			if((g1==1 && g2==2) || (g1==2 && g2==1))
+			{
+				document.getElementById("smoke").innerHTML = "Smoker 3 smoking";
+				document.getElementById("su1").innerHTML = "Tobacco";
+				document.getElementById("su2").innerHTML = "Papers";
+				document.getElementById("ph4").innerHTML = "Agent supplies - Tobacco and Papers";
+			}
+			else if((g1==2 && g2==3) || (g1==3 && g2==2))
+			{
+				document.getElementById("smoke").innerHTML = "Smoker 1 smoking";
+				document.getElementById("su1").innerHTML = "Papers";
+				document.getElementById("su2").innerHTML = "Matches";
+				document.getElementById("ph4").innerHTML = "Agent supplies - Papers and Matches";
+			}
+			else if((g1==1 && g2==3) || (g1==3 && g2==1))
+			{
+				document.getElementById("smoke").innerHTML = "Smoker 2 smoking";
+				document.getElementById("su1").innerHTML = "Tobacco";
+				document.getElementById("su2").innerHTML = "Matches";
+				document.getElementById("ph4").innerHTML = "Agent supplies - Tobacco and Matches";
+			}
+
+		}
+
+	</script>
+
+</body>
+
+</html>

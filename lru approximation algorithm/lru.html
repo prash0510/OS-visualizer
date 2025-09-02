@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+
+    .column {
+      padding: 15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 2fr)); /* Adjust as needed */
+      grid-gap: 10px; 
+      justify-items: center;
+    }
+    
+    .column1 {
+      position: relative;
+      width: 80%; /* Set width to 50% for two columns per row */
+      padding: 20px;
+      margin: 20px 10px;
+      background-color: #d1c4e9; /* Very light purple */
+      color: black; /* Dark gray */
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    
+    
+    
+      .butn {
+          margin-top: 2.5%;
+          height: 41px;
+    
+      }
+    
+      /* Clear floats after the columns */
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+    
+      .row1 {
+          padding-right: 15px;
+          height: 24vh;
+          margin-bottom: 0%;
+      }
+    
+      * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: #000000; /* Black */
+      font-family: 'Outfit', sans-serif;
+      
+       /* White */
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav {
+      background-color:#6200ea; /* Light purple */
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 0 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo {
+      font-size: 24px;
+      color: #ffffff; /* White */
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .logo:hover {
+      background-color: #8502f7;
+      text-decoration: none;
+      color:#ffffff
+       /* Dark purple */
+    }
+    
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    
+    li {
+      margin: 0 10px;
+    }
+    
+    a {
+      color: #ffffff; /* White */
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      background-color:#6200ea; /* Light purple */
+    }
+    
+    a:hover {
+      background-color:#8502f7; /* Dark purple */
+      text-decoration: none;
+      color:#ffffff
+    }
+    
+    .container {
+      background-color: #000000; /* Black */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 100px;
+    }
+    
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    
+    
+    .column1:hover {
+      transform: translateY(-5px);
+      background-color:#8502f7;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .column1 a {
+      color: white; /* Dark gray */
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    .column1 p {
+      margin-top: 10px;
+    }
+    
+    .jumbotron fun{
+    
+    }
+    
+    .xyheader{
+      padding-top: 1%;
+      margin-top: 5%;
+      color:#6200ea;
+      font-size:200;
+    
+    }
+    .button-button1{
+        background-color:#6200ea;
+    }
+
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+
+    <nav>
+      <a class="logo" href="../index.html">OS VISUALIZER</a>
+      <ul>
+          <li><a class="a" href="../index.html">Home</a></li>
+          <li><a class="a" href="../about.html">About</a></li>
+      </ul>
+  </nav>
+
+    <title>LRU Approximation</title>
+</head>
+<body>
+    <div class="jumbotron fun" style="background-color:#0f0f0f" >
+        <h1 style=" padding-top: 1%;"  style="margin-top: 5%;" style="color:#6200ea" style="font-size:200"  >LRU Approximation</h1>
+        <p style="color:#d1c4e9" class="lead">LRU approximation is a memory management technique that approximates the Least Recently Used (LRU) algorithm by periodically resetting the reference bits of pages in memory, allowing the operating system to maintain a simpler implementation while still achieving reasonable performance. 
+          
+        </p>
+    </div>
+    <div class="column">
+        <div class="column1" style="background-color:#d1c4e9">
+            <h2 style="color:#8502f7">Clock Algorithm</h2>
+            <p style="color:black">The Clock Algorithm, also known as the Second Chance Algorithm, is a page replacement algorithm used in operating systems for managing memory. It maintains a circular list of pages in memory and gives pages a "second chance" before replacing them, considering their recent access history. While simpler to implement, it may not always make optimal replacement decisions.</p>
+            <a href="../page reference algorithm/clock.html">Simulate</a>
+        </div>
+        <div class="column1" style="background-color:#d1c4e9">
+            <h2 style="color:#8502f7">Enhanced Second Chance Algorithm</h2>
+            <p style="color:black">The Enhanced Second Chance Algorithm is an improvement over the basic Second Chance Algorithm, incorporating page modification status in addition to access history. This enhancement enables more informed replacement decisions by considering both page access and modification, thereby potentially improving overall system performance.</p>
+            <a href="../enhanced second chance/enhanced .html">Simulate</a>
+        </div>
+    </div>
+    
+    
+</body>    
+    

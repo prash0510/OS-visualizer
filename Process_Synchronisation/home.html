@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Process Synchronization Simulations</title>
+    <link rel="stylesheet" href="./css/style.css">
+<style>
+    body {
+      background-color: #6200ea;
+      font-family: 'Outfit', sans-serif;
+      font-size: x-large;
+      color: black;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .input-container {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="number"], select {
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    #simulate-button {
+      margin: 20px auto;
+      display: block;
+      background-color: #FCBA28;
+      color: #0f0d0e;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition-duration: 0.5s;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 550;
+      border-radius: 5px;
+    }
+
+    #simulate-button:hover {
+      background-color: #0f0d0e;
+      color: #FCBA28;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Navigation Bar Styling */
+    nav {
+      background-color: black;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .logo {
+      color: black;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    li {
+      margin: 0 20px;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: black;
+      min-width: 160px;
+      z-index: 1;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      border-radius: 5px;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #FCBA28;
+      color: #0f0d0e;
+    }
+
+    .button {
+      background-color: #d1c4e9;
+      color: #0f0d0e;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+      transition-duration: 0.5s;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 550;
+      border-radius: 5px;
+    }
+
+    .button1 {
+      background-color: #d1c4e9;
+      color: #FCBA28;
+      border-radius: 5px;
+      border: 2px solid #FCBA28;
+    }
+
+    .button1:hover {
+      background-color: #d1c4e9;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+    <a class="logo" href="../index.html">OS VISUALIZER</a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Algorithms <i class="fa fa-caret-down"></i></a>
+        <div class="dropdown-content">
+          <a href="../process_scheduling/process.html">Process Scheduling</a>
+          <a href="../hashingAlgos/security.html">Security Algorithms</a>
+          <a href="../Deadlock/bankers.html">Bankers Algorithm</a>
+          <a href="../Memory_Management/Fit.html">Fit Algorithms</a>
+          <a href="../Page_Replacement/page_replacement_home.html">Page Replacement Algorithm</a>
+          <a href="../Disk/disk.html">Disk Scheduling</a>
+          <a href="../File_Allocation/file.html">File Allocation</a>
+          <a href="../Memory_Management/MVFT.html">MFT and MVT</a>
+          <a href="../Paging/paging.html">Paging Simulator</a>
+          <a href="../IPC/home.html">IPC</a>
+          <a href="../Process_Synchronisation/index.html">Process Synchronisation</a>
+          <a href="../File_Organisation/File_organization.html">File Organization</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+    <header>
+        <h1>Process Synchronization Simulations</h1>
+        <p>The problem of Synchronization is a major task handled by the OS. Each problem below demonstrates unique challenges in managing access to shared resources in concurrent programming environments. Click on any of the problems below to learn more!</p>
+    </header>
+    <section class="simulation-links">
+        <button class="reader-writer" onclick="window.location.href='rw_wiki.html';">Reader-Writer Problem</button>
+        <button class="producer-consumer" onclick="window.location.href='pc_wiki.html';">Producer-Consumer Problem</button>
+        <button class="dining-philosophers" onclick="window.location.href='dining_wiki.html';">Dining Philosophers Problem</button>
+        <button class="smoking-problem" onclick="window.location.href='cigrate_smoke_wiki.html';">Smoking Problem</button>
+        <button class="barber-problem" onclick="window.location.href='sb_wiki.html';">Barber Problem</button>
+    </section>
+</body>
+</html>

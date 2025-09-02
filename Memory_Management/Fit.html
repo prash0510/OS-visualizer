@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+<style>
+.column {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr)); /* Adjust as needed */
+    grid-gap: 10px; 
+    justify-items: center;
+  }
+  
+  .column1 {
+    position: relative;
+    width: 80%; /* Set width to 50% for two columns per row */
+    padding: 20px;
+    margin: 20px 10px;
+    background-color: #d1c4e9; /* Very light purple */
+    color: black; /* Dark gray */
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  
+  
+    .butn {
+        margin-top: 2.5%;
+        height: 41px;
+  
+    }
+  
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+  
+    .row1 {
+        padding-right: 15px;
+        height: 24vh;
+        margin-bottom: 0%;
+    }
+  
+    * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #000000; /* Black */
+    font-family: 'Outfit', sans-serif;
+    
+     /* White */
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    background-color:#6200ea; /* Light purple */
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 24px;
+    color: #ffffff; /* White */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logo:hover {
+    background-color: #8502f7;
+    text-decoration: none;
+    color:#ffffff
+     /* Dark purple */
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  li {
+    margin: 0 10px;
+  }
+  
+  a {
+    color: #ffffff; /* White */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    background-color:#6200ea; /* Light purple */
+  }
+  
+  a:hover {
+    background-color:#8502f7; /* Dark purple */
+    text-decoration: none;
+    color:#ffffff
+  }
+  
+  .container {
+    background-color: #000000; /* Black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  
+  
+  .column1:hover {
+    transform: translateY(-5px);
+    background-color:#8502f7;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .column1 a {
+    color: white; /* Dark gray */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .column1 p {
+    margin-top: 10px;
+  }
+  
+  .jumbotron fun{
+  
+  }
+  .dropdown-content {
+display: none;
+position: absolute;
+min-width: 135px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+background: rgba(2, 2, 0, 0.45);
+border-radius: 5px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(10.3px);
+-webkit-backdrop-filter: blur(10.3px);
+
+}
+
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+border: none;
+cursor: pointer;
+transition-duration: 0.25s;
+font-family: 'Outfit', sans-serif;
+font-weight: 550;
+font-size: small;
+
+}
+
+.dropdown-content a:hover {
+background-color:#6200ea;
+color: #0f0d0e;
+border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+body{
+  color:white
+}
+  .xyheader{
+    padding-top: 1%;
+    margin-top: 5%;
+    color:#6200ea;
+    font-size:200;
+  
+  }
+  </style>
+</head>
+<body class="body_name">
+    <!-- Navigation Bar -->
+    <nav>
+        <a class="logo" href="../index.html">OS VISUALIZER</a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Algorithms <i class="fa fa-caret-down"></i></a>
+        <div class="dropdown-content">
+			<a href="../process_scheduling/process.html">Process Scheduling</a>
+			<a href="../hashingAlgos/security.html">Security Algorithms</a>
+			<a href="../Deadlock/bankers.html">Bankers Algorithm</a>
+			<a href="../Memory_Management/Fit.html">Fit Algorithms</a>
+			<a href="../Page_Replacement/page_replacement_home.html">Page Replacement Algorithm</a>
+			<a href="../Disk/disk.html">Disk Scheduling</a>
+			<a href="../File_Allocation/file.html">File Allocation</a>
+			<a href="../Memory_Management/MVFT.html">MFT and MVT</a>
+			<a href="../Paging/paging.html">Paging Simulator</a>
+			<a href="../IPC/home.html">IPC</a>
+			<a href="../Process_Synchronisation/index.html">Process Synchronisation</a>
+      <a href="../File_Organisation/File_organization.html">File Organization</a>
+        </div>
+      </li>
+  </ul>
+</nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="jumbotron fun" style="background-color:#0f0f0f" >
+                <div class="xyheader">
+                <h1>Memory Fit</h1></div>
+                <p style="color:#d1c4e9" class="lead">
+                    Memory management algorithms in operating systems determine how memory is allocated and deallocated. First Fit searches memory sequentially and allocates the first block that fits the process. Best Fit selects the smallest available block that can accommodate the process, minimizing wastage. Other algorithms like Worst Fit, Next Fit, Quick Fit, and Buddy System offer variations in efficiency and fragmentation handling</p>
+                </p>
+            </div>
+            <div class="column1" style="background-color:#d1c4e9">
+                <h2 style="color:#8502f7">First Fit</h2>
+                <p style="color:black">First Fit allocates the first available memory block that is large enough to accommodate the process. It starts searching from the beginning of the memory and assigns the process to the first block that meets the size requirement. This technique is simple and efficient but can lead to significant fragmentation.</p>
+                
+                <a href="First_Fit.html">Simulate First Fit</a>
+                
+            </div>
+            <div class="column1" style="background-color:#d1c4e9">
+                <h2 style="color:#8502f7">Best Fit</h2>
+                <p style="color:black">Best Fit allocates the smallest available memory block that is just large enough to hold the process. It searches through the entire memory and selects the block that results in the smallest amount of wasted space. This technique reduces fragmentation, but it requires more time for searching the entire memory.</p>
+                
+                <a href="Best_Fit.html">Simulate Best Fit</a>
+                
+            </div>
+            <div class="column1" style="background-color:#d1c4e9">
+                <h2 style="color:#8502f7">Worst Fit</h2>
+                <p style="color:black">Worst Fit allocates the largest available memory block to the process. It searches through the entire memory and assigns the process to the largest block, leaving behind a larger amount of wasted space. This technique increases fragmentation but can be useful when large processes need to be allocated.</p>
+                
+                <a href="Worst_Fit.html">Simulate Worst Fit</a>
+                
+            </div>
+            <div class="column1" style="background-color:#d1c4e9">
+                <h2 style="color : #8502f7">Next Fit</h2>
+                <p style="color: black">Next Fit is an extension of the First Fit technique that starts searching for the next available block from the location where the previous allocation took place. It reduces the search time compared to First Fit as it continues the search from the last allocated position. However, it may still result in fragmentation similar to First Fit.
+                </p>
+                
+                <a href="Next_Fit.html">Simulate Next Fit</a>
+                
+            </div>
+        </div>
+    </div>

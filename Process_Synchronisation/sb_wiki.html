@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sleeping Barber</title>
+        <!--
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+        -->
+        <link rel="stylesheet" href="./css/style.css">
+        <script type="text/javascript" src="lru.js"></script>
+
+        <nav>
+          <a class="logo" href="../index.html">OS VISUALIZER</a>
+          <ul>
+              <li><a class="a" href="../index.html">Home</a></li>
+              <li><a class="a" href="../about.html">About</a></li>
+              <li><a class="a" href="#">References</a></li>
+          </ul>
+        </nav>
+    </head>
+    <body>
+
+        <br>
+        <header>
+          <h1 class="display-3">Sleeping Barber Problem</h1>
+          <hr class="my-4">
+          <h1>Problem Description</h1>
+          <p style="font-size: 20px">
+              The analogy is based upon a hypothetical barber shop with one barber and chair and n waiting chairs.
+              If there is no customer, then the barber sleeps in his own chair.
+              When a customer arrives, they wake up the barber.
+              If there are many customers and the barber is cutting a customer’s hair, then the remaining customers either wait if there are empty chairs, or they leave.
+          </p>
+          <br>
+          <h1>Solution</h1>
+          <p style="font-size: 20px">
+            The problem solution employs three semaphores: one tracks the number of customers in the waiting room, excluding the one in the barber chair; the second signals whether the barber is idle or working; and the third provides mutual exclusion for the process execution.
+
+            Customers monitor the waiting room occupancy. If it's full, the next customer exits the shop.
+
+            The barber initially blocks on the "customers" semaphore. When a customer arrives, they acquire the mutex, ensuring exclusive access. If space is available, the customer sits, increments the waiting count, and wakes the barber if asleep.
+
+            Once both barber and customer are awake, the haircut commences. Afterward, the customer exits, and if no others are waiting, the barber sleeps.
+          </p>
+          <hr class="my-4">
+      </header>
+                         
+<br>
+<img src="includes/abc-3.png">
+
+<h1> <br> <br>Code<br></h1>
+
+<img style="height: 500px; width: auto;" src="includes/sleeping_b_img.jpg">
+<br><br><br>
+
+<ul>
+  <li><a class="a" href="./home.html">Sync Problems</a></li>
+  <li><a class="a" href="./sleepingBarber.html">Simulation</a></li>
+</ul>
+<br><br><br><br><br>
+
+	</body>
+</html>

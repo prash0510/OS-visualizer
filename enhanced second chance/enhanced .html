@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   
+    <nav class="logo1">
+        <h1>Page reference - Enhanced Second Chance Algorithm</h1>
+    </nav>
+    
+    <div class="total">
+        <div class="overview">
+            <h2>Enhanced Second Chance Algorithm Overview</h2>
+            <p>
+                The Enhanced Second Chance Algorithm is an improvement over the traditional Clock Algorithm, also known as the Second Chance Algorithm, used in operating systems for managing memory.
+            </p>
+        
+            <h3>Brief :</h3>
+            <ol>
+                <li>The Enhanced Second Chance Algorithm maintains a circular list (or "clock") of pages in memory.</li>
+                <li>Each page in memory is associated with a reference bit and a modified bit, indicating whether the page has been accessed and modified since it was last considered for replacement.</li>
+                <li>When a page needs to be replaced, the algorithm scans through the circular list of pages until it finds a page with a reference bit of 0 (indicating it has not been recently accessed).</li>
+                <li>If all pages have their reference bits set to 1, indicating recent access, the algorithm gives the page a "second chance" by resetting its reference bit to 0 and moving to the next page in the clock.</li>
+                <li>This process continues until a page is found that can be replaced, considering both the reference and modified status of pages.</li>
+            </ol>
+        </div>
+        
+        <div class="advantages">
+            <h3>Advantages:</h3>
+            <ol>
+                <li>Improved Decision Making: The Enhanced Second Chance Algorithm considers both page access and modification status, making more informed decisions about which pages to replace.</li>
+                <li>Simple Implementation: Like the Clock Algorithm, the Enhanced Second Chance Algorithm is relatively easy to implement compared to more complex algorithms like LRU (Least Recently Used).</li>
+                <li>Low Overhead: It requires minimal additional memory overhead, as it only requires a single reference bit and a single modified bit per page.</li>
+            </ol>
+        </div>
+        
+        <div class="disadvantages">
+            <h3>Disadvantages:</h3>
+            <ol>
+                <li>Not Always Optimal: While improved over the basic Clock Algorithm, the Enhanced Second Chance Algorithm may still not always make the optimal replacement decision, especially in scenarios with complex access patterns.</li>
+                <li>Potential for Thrashing: In situations where the number of frames is insufficient to hold all the necessary pages, the algorithm may struggle to prioritize pages effectively, potentially leading to thrashing.</li>
+                <li>Starvation: Pages with a high reference frequency and modification status may continue to be given a "second chance" indefinitely, leading to potential starvation for other pages waiting to be brought into memory.</li>
+            </ol>
+        </div>
+    </div>
+
+    
+    <label for="frame-count">Enter the number of frames in memory:</label>
+    <input type="number" id="frame-count">
+    <button onclick="createFrames()" class="button button1 dropbtn">Create Frames</button>
+
+    <div id="frame-container"></div>
+
+    <label for="page-reference">Enter the sequence of page references (comma-separated):</label>
+    <input type="text" id="page-reference">
+    <br>
+    <label for="page-modified">Enter the modified status for each page (comma-separated, 1 for modified, 0 for not modified):</label>
+    <input type="text" id="page-modified">
+
+    <button onclick="replacePage()" class="button button1 dropbtn">Replace Page</button>
+
+    <div id="replacement-log"></div>
+
+    <script>
+        var memoryFrames = [];
+
+        function createFrames() {
+            var frameCount = parseInt(document.getElementById("frame-count").value);
+            var frameContainer = document.getElementById("frame-container");
+
+            // Clear existing frames
+            frameContainer.innerHTML = "";
+
+            // Create frame elements
+            for (var i = 0; i < frameCount; i++) {
+                var frame = document.createElement("div");
+                frame.className = "frame";
+                frame.innerHTML = "Page " + i + ": Empty";
+                frameContainer.appendChild(frame);
+                memoryFrames.push({ page_id: null, referenced: false, modified: false, element: frame });
+            }
+        }
+
+        function replacePage() {
+            var sequence = document.getElementById("page-reference").value.split(",").map(Number);
+            var modifiedStatus = document.getElementById("page-modified").value.split(",").map(Number);
+            var replacementLog = document.getElementById("replacement-log");
+            var pageFaults = 0;
+
+            if (sequence.length !== modifiedStatus.length) {
+                replacementLog.innerHTML = "<p>Error: Number of pages and modified statuses do not match.</p>";
+                return;
+            }
+
+            // Iterate through page reference sequence
+            for (var i = 0; i < sequence.length; i++) {
+                var page_id = sequence[i];
+                var modified = modifiedStatus[i];
+                var pageFound = false;
+
+                // Check if page is already in memory
+                for (var j = 0; j < memoryFrames.length; j++) {
+                    if (memoryFrames[j].page_id === page_id) {
+                        memoryFrames[j].referenced = true;
+                        memoryFrames[j].modified = modified === 1 ? true : false;
+                        pageFound = true;
+                        break;
+                    }
+                }
+
+                // If page not found in memory, perform page replacement
+                if (!pageFound) {
+                    pageFaults++;
+                    var replaced = false;
+
+                    // Find a page to replace
+                    while (!replaced) {
+                        var frame = memoryFrames.shift(); // Remove frame from the front
+                        if (!frame.referenced && !frame.modified) { // Check if page meets conditions for replacement
+                            frame.page_id = page_id;
+                            frame.referenced = true;
+                            frame.modified = modified === 1 ? true : false;
+                            frame.element.innerHTML = "Page " + page_id;
+                            memoryFrames.push(frame); // Add frame to the back
+                            replaced = true;
+                        } else {
+                            frame.referenced = false;
+                            memoryFrames.push(frame); // Add frame to the back
+                        }
+                    }
+                }
+            }
+
+            replacementLog.innerHTML = "<p>Total Page Faults: " + pageFaults + "</p>";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+body {
+    background-color: #000000; /* Black */
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff; /* White */
+}
+
+nav {
+    background-color: #6200ea; /* Light purple */
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    color: #ffffff; /* White */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.logo:hover {
+    background-color: #8502f7; /* Dark purple */
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    margin: 0 10px;
+}
+
+a {
+    color: #ffffff; /* White */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #8502f7; /* Dark purple */
+    text-decoration: none;
+}
+
+.total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 130px;
+    border-box: 100%;
+}
+
+.overview,
+.advantages,
+.disadvantages {
+    width: 80%;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #d1c4e9; /* Very light purple */
+    color: black; /* Dark gray */
+    border-radius: 10px;
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.advantages,
+.disadvantages {
+    width: 80%;
+}
+
+h2,
+h3 {
+    color: #6200ea; /* Light purple */
+}
+
+button {
+    background-color: #6200ea; /* Light purple */
+    color: #ffffff; /* White */
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #8502f7; /* Dark purple */
+}
+
+.frame-count-label,
+.frame-reference-label,
+.frame-modified-label,
+.frame-reference-input,
+.frame-modified-input,
+.replace-page-button {
+    margin: 10px 0;
+}
+
+.frame-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.frame {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    background-color:#6200ea; 
+    border-radius: 5px 10px;
+    margin: 10px;
+    font-size: 18px;
+}

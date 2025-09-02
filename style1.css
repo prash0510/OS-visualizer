@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #6200ea; /* Black */
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    color: black; /* White */
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    background-color:#6200ea; /* Light purple */
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 24px;
+    color: #ffffff; /* White */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logo:hover {
+    background-color: #8502f7; /* Dark purple */
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  li {
+    margin: 0 10px;
+  }
+  
+  a {
+    color: #ffffff; /* White */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    background-color:#6200ea; /* Light purple */
+  }
+  
+  a:hover {
+    background-color:#8502f7; /* Dark purple */
+  }
+  
+  .container {
+    background-color: #000000; /* Black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .column1 {
+    position: relative;
+    width: calc(33.33% - 20px);
+    padding: 20px;
+    margin: 20px 10px;
+    background-color: #d1c4e9; /* Very light purple */
+    color: black; /* Dark gray */
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .column1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .column1 a {
+    color: white; /* Dark gray */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .column1 p {
+    margin-top: 10px;
+  }
+  
+  

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<div>
+   
+    <nav class="logo">
+        <h1>Page reference - Clock Algorithm</h1>
+
+    </nav>
+    <div class="total">
+    <div class="overview">
+        <h2>Clock Algorithm Overview</h2>
+        <p>
+            The Clock Algorithm, also known as the Second Chance Algorithm, is a page replacement algorithm used in operating systems for managing memory.
+        </p>
+    
+        <h3>Brief :</h3>
+        <ol>
+            <li>The Clock Algorithm maintains a circular list (or "clock") of pages in memory.</li>
+            <li>Each page in memory is associated with a reference bit, which indicates whether the page has been accessed since it was last considered for replacement.</li>
+            <li>When a page needs to be replaced, the Clock Algorithm scans through the circular list of pages until it finds a page with a reference bit of 0 (indicating it has not been recently accessed).</li>
+            <li>If all pages have their reference bits set to 1, indicating recent access, the algorithm gives the page a "second chance" by resetting its reference bit to 0 and moving to the next page in the clock.</li>
+            <li>This process continues until a page is found that can be replaced.</li>
+        </ol>
+    </div>
+    
+    <div class="advantages">
+        <h3>Advantages:</h3>
+        <ol>
+            <li>Simple Implementation: The Clock Algorithm is relatively easy to implement compared to some other page replacement algorithms like LRU (Least Recently Used).</li>
+            <li>Low Overhead: It requires minimal additional memory overhead, as it only requires a single reference bit per page.</li>
+        </ol>
+    </div>
+    
+    <div class="disadvantages">
+        <h3>Disadvantages:</h3>
+        <ol>
+            <li>Not Optimal: The Clock Algorithm may not always make the optimal replacement decision, as it does not consider the frequency or recency of page accesses beyond a binary "referenced" or "not referenced" status.</li>
+            <li>Potential for Thrashing: In situations where the number of frames is insufficient to hold all the necessary pages, the Clock Algorithm may not effectively prioritize pages for retention, potentially leading to thrashing.</li>
+            <li>Starvation: Pages with a high reference frequency may continue to be given a "second chance" indefinitely, leading to potential starvation for other pages waiting to be brought into memory.</li>
+        </ol>
+    </div>
+</div>
+    
+
+
+    <label for="frame-count">Enter the number of frames in memory:</label>
+    <input type="number" id="frame-count">
+    <button onclick="createFrames()" class="button button1 dropbtn">Create Frames</button>
+
+    <div id="frame-container"></div>
+
+    <label for="page-reference">Enter the sequence of page references:</label>
+    <input type="text" id="page-reference">
+    <button onclick="replacePage()" class="button button1 dropbtn">Replace Page</button>
+
+    <div id="replacement-log"></div>
+
+    <script>
+        var memoryFrames = [];
+
+        function createFrames() {
+            var frameCount = parseInt(document.getElementById("frame-count").value);
+            var frameContainer = document.getElementById("frame-container");
+
+            // Clear existing frames
+            frameContainer.innerHTML = "";
+
+            // Create frame elements
+            for (var i = 0; i < frameCount; i++) {
+                var frame = document.createElement("div");
+                frame.className = "frame";
+                frame.innerHTML = "Frame " + i + ": Empty";
+                frameContainer.appendChild(frame);
+                memoryFrames.push({ page_id: null, referenced: false, element: frame });
+            }
+        }
+
+        function replacePage() {
+            var sequence = document.getElementById("page-reference").value.split(",").map(Number);
+            var replacementLog = document.getElementById("replacement-log");
+            var pageHit = 0;
+            var pageMiss = 0;
+
+            // Iterate through page reference sequence
+            for (var i = 0; i < sequence.length; i++) {
+                var page_id = sequence[i];
+
+                // Check if page is already in memory
+                var pageFound = false;
+                for (var j = 0; j < memoryFrames.length; j++) {
+                    if (memoryFrames[j].page_id === page_id) {
+                        memoryFrames[j].referenced = true;
+                        pageHit++;
+                        pageFound = true;
+                        replacementLog.innerHTML += "<p>Page " + page_id + " was found in memory. Page Hit!</p>";
+                        break;
+                    }
+                }
+
+                // If page not found in memory, perform page replacement
+                if (!pageFound) {
+                    pageMiss++;
+                    while (true) {
+                        var frame = memoryFrames.shift(); // Remove frame from the front
+                        if (!frame.referenced) {
+                            frame.page_id = page_id;
+                            frame.referenced = true;
+                            frame.element.innerHTML = "Page " + page_id;
+                            memoryFrames.push(frame); // Add frame to the back
+                            replacementLog.innerHTML += "<p>Page " + page_id + " caused a page fault. Replaced page in frame " + frame.element.innerHTML + "</p>";
+                            break;
+                        } else {
+                            frame.referenced = false;
+                            memoryFrames.push(frame); // Add frame to the back
+                        }
+                    }
+                }
+            }
+
+            replacementLog.innerHTML += "<p>Total Page Hits: " + pageHit + "</p>";
+            replacementLog.innerHTML += "<p>Total Page Misses: " + pageMiss + "</p>";
+           
+            
+        }
+    </script>
+</body>
+</html>
